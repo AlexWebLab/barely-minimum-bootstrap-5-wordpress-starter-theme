@@ -1,0 +1,11 @@
+/*
+Theme Name: bs5starter
+Theme URI: https://github.com/AlexWebLab/barely-minimum-bootstrap-5-wordpress-starter-theme
+Author: AlexWebLab
+Author URI: https://alexweblab.com/
+Description: Theme features: minimum amount of files required for a WordPress theme (index.php and style.css); Bootstrap 5 CSS & JS files enqueued (in function.php from /functions/enqueues.php); jQuery removed but optionally available commenting out one line from /functions/enqueues.php; Bootstrap 5 starter template (separated in 3 files: header.php, index.php and footer.php); custom wp_nav_menu walker for Bootstrap 5 navbar (in function.php from /functions/navbar.php); empty custom.css & custom.js files (located in /css and /js, respectively)
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bs5starter
+*/
