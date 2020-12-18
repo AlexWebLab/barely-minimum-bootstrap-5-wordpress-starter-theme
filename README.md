@@ -1,4 +1,4 @@
-# Barely minimum Bootstrap 5 WordPress starter theme [boilerplater for developers only]
+# Barely minimum Bootstrap 5 WordPress starter theme [boilerplate for developers only]
 [bs5starter](https://github.com/AlexWebLab/bs5starter)
 ## Theme features:
 * minimum amount of files required for a WordPress theme (index.php and style.css)
