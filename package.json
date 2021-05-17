@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AlexWebLab/barely-minimum-bootstrap-5-wordpress-starter-theme/issues"
   },
-  "homepage": "https://github.com/AlexWebLab/barely-minimum-bootstrap-5-wordpress-starter-theme#readme"
+  "homepage": "https://github.com/AlexWebLab/barely-minimum-bootstrap-5-wordpress-starter-theme#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
