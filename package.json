@@ -17,6 +17,16 @@
   },
   "homepage": "https://github.com/AlexWebLab/barely-minimum-bootstrap-5-wordpress-starter-theme#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.1"
   }
 }
