@@ -1,1 +1,0 @@
-let testVariable1 = 'hello';

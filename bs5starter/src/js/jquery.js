@@ -1,0 +1,1 @@
+const testVariable2 = 'jquery';
