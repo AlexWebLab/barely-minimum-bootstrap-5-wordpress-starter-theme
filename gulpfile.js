@@ -14,7 +14,7 @@ const cleanCSS = require('gulp-clean-css');
 
 gulp.task('clean', () => {
   return del([
-    'bs5starter/dist/*',
+    'bs5starter/dist',
   ]);
 });
 
@@ -33,13 +33,21 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest('bs5starter/dist/js'));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
   return gulp.src('bs5starter/src/sass/styles.scss')
-    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(rename({suffix: '.min'}))
     .pipe(cleanCSS('level: 2'))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('bs5starter/dist/css'))
 });
 
-gulp.task('default', gulp.series('clean', gulp.parallel('scripts', 'styles')));
+gulp.task('watch', function () {
+  gulp.watch(
+    ['bs5starter/src/**/*'],
+    { ignoreInitial: false },
+    gulp.series('clean', gulp.parallel('scripts', 'styles'))
+  );
+})
+
+gulp.task('default', gulp.series('watch'));
