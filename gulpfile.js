@@ -30,7 +30,7 @@ function buildStyles() {
     }))
     .pipe(gulp.dest(distFolder + 'css'))
     .pipe(cleanCSS('level: 2'))
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest(distFolder + 'css'))
 };
 // scripts tasks
