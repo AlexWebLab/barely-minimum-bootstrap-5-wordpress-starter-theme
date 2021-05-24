@@ -7,6 +7,7 @@ const sass = require('gulp-dart-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const cleanCSS = require('gulp-clean-css');
+const purgecss = require('gulp-purgecss');
 // scripts imports
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
@@ -21,6 +22,7 @@ function buildStyles() {
   return gulp.src('bs5starter/src/sass/styles.scss')
     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
+    .pipe(purgecss({ content: ['bs5starter/**/*.php', 'bs5starter/src/js/*.js'], variables: true }))
     .pipe(cleanCSS('level: 2'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('bs5starter/dist/css'))
