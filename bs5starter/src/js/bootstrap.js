@@ -1,1 +1,1 @@
-let testVariable1 = 'boostrap';
+let testVariable1 = 'boostrap2';
