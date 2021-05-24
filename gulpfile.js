@@ -23,6 +23,7 @@ function buildStyles() {
     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
     .pipe(purgecss({ content: ['bs5starter/**/*.php', 'bs5starter/src/js/*.js'], variables: true }))
+    .pipe(gulp.dest('bs5starter/dist/css'))
     .pipe(cleanCSS('level: 2'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('bs5starter/dist/css'))
@@ -42,8 +43,10 @@ function buildScripts() {
     .pipe(babel({
       presets: ['@babel/preset-env']
     }))
-    .pipe(concat('scripts.min.js'))
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('bs5starter/dist/js'))
     .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('bs5starter/dist/js'));
 };
