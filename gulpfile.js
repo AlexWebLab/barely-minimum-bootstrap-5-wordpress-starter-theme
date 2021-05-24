@@ -30,7 +30,7 @@ function buildStyles() {
     }))
     .pipe(gulp.dest(distFolder + 'css'))
     .pipe(cleanCSS('level: 2'))
-    .pipe(rename({ extname: '.min.js' }))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(distFolder + 'css'))
 };
 // scripts tasks
@@ -47,7 +47,7 @@ function buildScripts() {
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest(distFolder + 'js'))
     .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(distFolder + 'js'));
 };
@@ -57,5 +57,8 @@ function buildAndWatch() {
   gulp.watch([sourceFolder + 'js/*'], { ignoreInitial: false }, gulp.series(cleanScripts, buildScripts));
 };
 // export tasks
-exports.build = gulp.parallel(gulp.series(cleanStyles, buildStyles), gulp.series(cleanScripts, buildScripts));
+exports.build = gulp.parallel(
+  gulp.series(cleanStyles, buildStyles),
+  gulp.series(cleanScripts, buildScripts)
+);
 exports.default = buildAndWatch;
