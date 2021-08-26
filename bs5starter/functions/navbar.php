@@ -18,7 +18,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
     'dropdown-menu-xxl-end'
   ];
 
-  function start_lvl(&$output, $depth = 0, $args = array())
+  function start_lvl(&$output, $depth = 0, $args = null)
   {
     $dropdown_menu_class[] = '';
     foreach($this->current_item->classes as $class) {
@@ -31,7 +31,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
     $output .= "\n$indent<ul class=\"dropdown-menu$submenu " . esc_attr(implode(" ",$dropdown_menu_class)) . " depth_$depth\">\n";
   }
 
-  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+  function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
   {
     $this->current_item = $item;
 
@@ -62,7 +62,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
     $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
     $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
-    $active_class = ($item->current || $item->current_item_ancestor) ? 'active' : '';
+    $active_class = ($item->current || $item->current_item_ancestor || in_array("current_page_parent", $item->classes, true) || in_array("current-post-ancestor", $item->classes, true)) ? 'active' : '';
     $nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
     $attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
 
