@@ -1,1 +1,14 @@
-@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+// @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+a {
+  &:hover {
+      color: red;
+  }
+}
+$alertClass: "error";
+
+p.message-#{$alertClass} {
+    color: red;
+}
+.flex {
+  display: flex;
+}

@@ -21,15 +21,20 @@ function cleanStyles() {
   return del([distFolder + 'css']);
 };
 function buildStyles() {
-  return gulp.src(sourceFolder + 'sass/styles.scss')
+  return gulp.src([
+    sourceFolder + 'sass/styles.scss',
+    sourceFolder + 'css/style1.css',
+    sourceFolder + 'css/style2.css',
+  ])
+    .pipe(concat('styles.css'))
     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(purgecss({
-      content: [baseFolder + '**/*.php', sourceFolder + 'js/*.js'],
-      variables: true
-    }))
+    // .pipe(purgecss({
+    //   content: [baseFolder + '**/*.php', sourceFolder + 'js/*.js'],
+    //   variables: true
+    // }))
     .pipe(gulp.dest(distFolder + 'css'))
-    .pipe(cleanCSS('level: 2'))
+    .pipe(cleanCSS({ level: 2 }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(distFolder + 'css'))
 };
